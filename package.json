@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "browserify-cipher": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "node-rsa": "^1.1.1"
+  }
+}
