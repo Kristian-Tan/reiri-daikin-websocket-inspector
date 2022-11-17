@@ -30,10 +30,10 @@ const argFileCommonKey = args[1];
 const argMode = args[2];
 var argContent = args[3];
 
-if(!(argFilePrivateKey)) { console.log("incomplete argument"); return; }
-if(!(argFileCommonKey)) { console.log("incomplete argument"); return; }
-if(!(argMode)) { console.log("incomplete argument"); return; }
-if(!(argContent)) { console.log("incomplete argument"); return; }
+if(!(argFilePrivateKey)) { console.log("incomplete argument"); process.exit(1); }
+if(!(argFileCommonKey)) { console.log("incomplete argument"); process.exit(1); }
+if(!(argMode)) { console.log("incomplete argument"); process.exit(1); }
+if(!(argContent)) { console.log("incomplete argument"); process.exit(1); }
 
 if(argContent == "STDIN") {
     const stdinBuffer = fs.readFileSync(process.stdin.fd);
@@ -75,6 +75,9 @@ if(argMode == "generate") {
     } else if(argMode == "decrypt") {
         console.log(decrypt(argContent,common_key));
     }
+} else {
+    console.log("unknown operation");
+    process.exit(1);
 }
 
 
